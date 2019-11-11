@@ -4,7 +4,7 @@ import numpy as np
   'Description: A program with takes in the terms of a polynomical and locates the roots based using 3 differnt rootfinding methods
   'Author: Uygur Tepe
 '''
-from Poly import Polynomial
+from Polynomial import Polynomial
 
 class Roots(Polynomial):
     

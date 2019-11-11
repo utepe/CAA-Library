@@ -1,6 +1,10 @@
 
 import numpy as np
 
+'''
+    Description: Base Class for most Programs that use Polynomials
+    Author: Uygur Tepe
+'''
 class Polynomial:
     poly = np.poly1d([])
     polyDerivative = np.polyder(poly)

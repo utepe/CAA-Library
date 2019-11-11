@@ -1,10 +1,10 @@
 import numpy as np
 import math as m
 
-from Poly import Polynomial
+from Polynomial import Polynomial
 
 '''
-  'Description: A function to determine the max of a polynomial using golden selection search
+  'Description: A Class to determine the max of the entered polynomial using golden selection search
   'Author: Uygur Tepe
 '''
 
