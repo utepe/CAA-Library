@@ -2,9 +2,10 @@
 import numpy as np
 
 '''
-    Description: Base Class for most Programs that use Polynomials
+    Description: Base Class for most Programs that use Polynomials in the Project Library
     Author: Uygur Tepe
 '''
+
 class Polynomial:
     poly = np.poly1d([])
     polyDerivative = np.polyder(poly)
