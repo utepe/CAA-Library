@@ -4,8 +4,8 @@ import math as m
 from Polynomial import Polynomial
 
 '''
-  'Description: A Class to determine the max of the entered polynomial using golden selection search
-  'Author: Uygur Tepe
+    Description: A Class to determine the max of the entered polynomial using golden selection search
+    Author: Uygur Tepe
 '''
 
 #global variable to define the golden ratio
@@ -13,20 +13,32 @@ grat = (m.sqrt(5) - 1) / 2
 
 class Optimization(Polynomial):
     
-    def __init__(self):
-        super().__init__()
-    
+    '''Constructor'''
+    def __init__(self, *args):
+        Polynomial.__init__(self, *args)
+        
+    ''' Method to user defined boundries of where the search should begin iterating at
+        Input:
+        Output: returns lower, and upper bound x-values where iteratings will begin 
+    '''
     def getBoundry(self):
-        lower = float(input("Enter lower bound of where the method should star iterating: "))
-        upper = float(input("Enter upper bound of where the method should star iterating: "))
+        lower = float(input("Enter lower bound of where the method should start iterating: "))
+        upper = float(input("Enter upper bound of where the method should start iterating: "))
         
         return lower, upper
     
+    ''' Error calculation method
+        Input: upper x-val, lower x-val, optimal x-val
+        Output: error of the optimal x value as a percentage
+    '''
     def errorCalc(self, xUpper, xLow, xOpt):
         return (1- grat)*abs((xUpper-xLow)/ xOpt) *100
 
-
-    def goldSelecSort(self, xLow, xUpper, errorTol, maxIter):
+    ''' Golden selection search method to approximate the max of the inputted function
+        Input: lower and upper boundry x-val, desired error tolerance, maximum number of iterations
+        Output: Optimal x-value where maximum is approximated to
+    '''
+    def goldenSearch(self, xLow, xUpper, errorTol, maxIter):
         x1 = 0
         x2 = 0
         xOpt = 0
@@ -60,19 +72,14 @@ class Optimization(Polynomial):
     
 
 def main():
-    print("This will program will approximate the maximum of an inputted polynomial")
-    print("Enter the information for the polynomial: ")
-    degree = int(input("Enter the degree of the polynomial: "))
-    terms = Optimization().getCoeffBaseX(degree)
-    
+    print("This program will approximate the maximum of an inputted polynomial")
     function = Optimization()
-    function.setTerms(terms)
     function.displayPoly()
     xLower, xUpper = function.getBoundry()
     errorTol = function.getErrorTolerance()
     maxIter = function.maxIterations()
     
-    xOpt = function.goldSelecSort(xLower, xUpper, errorTol, maxIter)
+    xOpt = function.goldenSearch(xLower, xUpper, errorTol, maxIter)
     print("xMax = " + str(xOpt) + ", FunctionValue(xMax) = " + str(function.getValue(xOpt)))
     
 

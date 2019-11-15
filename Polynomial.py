@@ -10,13 +10,23 @@ class Polynomial:
     poly = np.poly1d([])
     polyDerivative = np.polyder(poly)
 
-    def __init__(self):
+    def __init__(self, *args):
+        degree = self.getInfo()
+        terms = self.getCoeffBaseX(degree)
+        #args = np.array(args).reshape([-1])
+        self.poly = np.poly1d(terms)
+        self.polyDerivative = np.polyder(self.poly)
         pass
     
+    def __call__(self, x):
+        return self.poly(x)
+    
+    ''' Update: This is no longer necessary (redundant)
     def setTerms(self, terms):
         self.poly = np.poly1d(terms)
         self.polyDerivative = np.polyder(self.poly)
-        
+    '''
+       
     def displayPoly(self):
         print("You entered polynomial: ")
         print(self.poly)
@@ -51,3 +61,8 @@ class Polynomial:
     def maxIterations(self):
         maxIter = float(input("Enter the desired amount of iterations: "))
         return maxIter
+    
+    def getInfo(self):
+        print("Enter the information for the polynomial: ")
+        degree = int(input("Enter the degree of the polynomial: "))
+        return degree
