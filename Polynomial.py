@@ -20,12 +20,6 @@ class Polynomial:
     
     def __call__(self, x):
         return self.poly(x)
-    
-    ''' Update: This is no longer necessary (redundant)
-    def setTerms(self, terms):
-        self.poly = np.poly1d(terms)
-        self.polyDerivative = np.polyder(self.poly)
-    '''
        
     def displayPoly(self):
         print("You entered polynomial: ")

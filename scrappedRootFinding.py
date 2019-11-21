@@ -47,7 +47,6 @@ def faslePositionMethod(self, xLow, xHigh, errorTolerance, maxIterations):
         if i > 0:
             error = self.errorCalc(xOld, xNew)
         if error < errorTolerance:
-            break
             
         xOld = xNew
         i = i + 1
