@@ -9,11 +9,13 @@ import numpy as np
 class Polynomial:
     poly = np.poly1d([])
     polyDerivative = np.polyder(poly)
+    polySecondDer = np.polyder(polyDerivative)
 
     def __init__(self, terms):
         terms = np.array(terms).reshape([-1])
         self.poly = np.poly1d(terms)
         self.polyDerivative = np.polyder(self.poly)
+        self.polySecondDer = np.polyder(self.polyDerivative)
         pass
     
     def __call__(self, x):
@@ -27,6 +29,10 @@ class Polynomial:
         print("It's derivative: ")
         print(self.polyDerivative)
 
+    def displaySecondDerivative(self):
+        print("It's Second Derivative")
+        print(self.polySecondDer)
+        
     def getCoeffBaseX(self, degree):
         polyCoeff = []
         
@@ -45,6 +51,9 @@ class Polynomial:
     
     def getDerivativeValue(self, xValue):
         return self.polyDerivative(xValue)
+    
+    def getSecondDerivativeVal(self, xVaue):
+        return self.polySecondDer(xVaue)
     
     def getErrorTolerance(self):
         errorTol = float(input("Enter the desired error tolerance (%): "))

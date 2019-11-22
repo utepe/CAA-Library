@@ -12,7 +12,7 @@ class Analysis(Optimization, Roots, Plotter):
             print("What would you like to do with this function?")
             print("0. To terminate program")
             print("1. Find the a root of the function")
-            print("2. Find the max value of the function (Optimum)")
+            print("2. Find the max/min value of the function")
             print("3. Plot the given function for a graphical solution")
 
             print("")

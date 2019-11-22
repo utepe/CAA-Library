@@ -2,6 +2,7 @@
 from goldenSelecSearch import Optimization
 from rootFinding import Roots
 from plotPloy import Plotter
+from optimize import Optimize
 
 class Selection:
     def __init__(self):
@@ -10,7 +11,7 @@ class Selection:
     def methodSelector(self, choice, terms):
         selector = {
             1 : Roots().runRootFind,
-            2 : Optimization().runOptimum,
+            2 : Optimize().runMinMaxFind,
             3 : Plotter().runPlotter, 
         }
         

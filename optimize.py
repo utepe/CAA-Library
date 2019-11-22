@@ -1,17 +1,14 @@
 import numpy as np
+import math as m
 
-'''
-  'Description: A program with takes in the terms of a polynomical and locates the roots based using 3 differnt rootfinding methods
-  'Author: Uygur Tepe
-'''
 from Polynomial import Polynomial
 
-class Roots(Polynomial):
+class Optimize(Polynomial):
     
     '''Constructor'''
     def __init__(self, *args):
         Polynomial.__init__(self, args)
-    
+        
     ''' Error calculation method
         Input: xOld, xNew
         Output: error of the new x value as a percentage
@@ -19,17 +16,17 @@ class Roots(Polynomial):
     def errorCalc(self, xOld, xNew):
         return abs((xNew-xOld)/xNew) * 100
     
-    ''' Newton Raphson Method of root finding 
+    ''' Newton Raphson Method of Min/Max finding 
         Input: initial guess, xNaught, the desired error tolerace, and maximum number of iterations
         Output: approximated root of the function
     '''
-    def newtonRaphsonMethod(self, xNaught, errorTolerance, maxIterations):
+    def secondDerNewtonRaphsonMethod(self, xNaught, errorTolerance, maxIterations):
         xNew = 0
         error = 0
         i = 0
         
         while i < maxIterations:
-            xNew = xNaught - (self.getValue(xNaught)/self.getDerivativeValue(xNaught))
+            xNew = xNaught - (self.getDerivativeValue(xNaught)/self.getSecondDerivativeVal(xNaught))
             
             if i > 0:
                 error = self.errorCalc(xNaught, xNew)
@@ -41,20 +38,24 @@ class Roots(Polynomial):
         
         return xNew
     
-    ''' Method to get users inital guess
-        Input: 
-        Output: user inputted initial guess
-    '''
+    def isMinMax(self, xValue):
+        if(self.getSecondDerivativeVal(xValue) > 0):
+            print("Minimum was found at {:0.6f} \n".format(xValue))
+        else:
+            print("Maximum was found at {:0.6f} \n".format(xValue))
+    
     def getInitialGuess(self):
         xNaught = float(input("Enter the initial guess where the method should beging at: "))
         return xNaught
     
-    def runRootFind(self, terms):
+    def runMinMaxFind(self, terms):
         self.__init__(terms)
         self.displayPoly()
         self.displayDerivative()
+        self.displaySecondDerivative()
         xNaught = self.getInitialGuess()
         errorTol = self.getErrorTolerance()
         maxIter = self.maxIterations()
-        print("A root using Newton-Raphson Method: {:0.6f} \n".format(self.newtonRaphsonMethod(xNaught, errorTol, maxIter)))
-
+        xCalc = self.secondDerNewtonRaphsonMethod(xNaught, errorTol, maxIter)
+        self.isMinMax(xCalc)
+        #print("A using Newton-Raphson Method: {:0.6f} \n".format(self.secondDerNewtonRaphsonMethod(xNaught, errorTol, maxIter)))
