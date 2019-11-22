@@ -10,8 +10,7 @@ class Roots(Polynomial):
 
     '''Constructor'''
     def __init__(self, *args):
-        Polynomial.__init__(self, *args)
-    
+        Polynomial.__init__(self, args)
     
     ''' Error calculation method
         Input: xOld, xNew
@@ -49,20 +48,13 @@ class Roots(Polynomial):
     def getInitialGuess(self):
         xNaught = float(input("Enter the initial guess where the method should beging at: "))
         return xNaught
-        
-def main():
-    print("This program will aproximate the root of a polynomial given a starting postition")
-    function = Roots()
-    function.displayPoly()
-    function.displayDerivative()
-    xNaught = function.getInitialGuess()
-    errorTol = function.getErrorTolerance()
-    maxIter = function.maxIterations()
+    
+    def runRootFind(self, terms):
+        self.__init__(terms)
+        self.displayPoly()
+        self.displayDerivative()
+        xNaught = self.getInitialGuess()
+        errorTol = self.getErrorTolerance()
+        maxIter = self.maxIterations()
+        print("A root using Newton-Raphson Method: {:0.6f} \n".format(self.newtonRaphsonMethod(xNaught, errorTol, maxIter)))
 
-    print("")
-    print("-------------------------------------------")
-    print("Newton-Raphson Method: {:0.6f}".format(function.newtonRaphsonMethod(xNaught, errorTol, maxIter)))
-         
-
-if __name__ == '__main__':
-    main()

@@ -10,10 +10,8 @@ class Polynomial:
     poly = np.poly1d([])
     polyDerivative = np.polyder(poly)
 
-    def __init__(self, *args):
-        degree = self.getInfo()
-        terms = self.getCoeffBaseX(degree)
-        #args = np.array(args).reshape([-1])
+    def __init__(self, terms):
+        terms = np.array(terms).reshape([-1])
         self.poly = np.poly1d(terms)
         self.polyDerivative = np.polyder(self.poly)
         pass

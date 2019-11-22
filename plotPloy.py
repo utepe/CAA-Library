@@ -5,7 +5,7 @@ from Polynomial import Polynomial
 
 class Plotter(Polynomial):
     def __init__(self, *args):
-        Polynomial.__init__(self, *args)
+        Polynomial.__init__(self, args)
         
     ''' set domain'''
     def setDomain(self):
@@ -25,14 +25,7 @@ class Plotter(Polynomial):
         plt.plot(X, Y)
         plt.show()
     
-
-def main():
-
-    function = Plotter()
-    function.displayPlot(function)
-    
-    #fig.savefig("myFirstSave")
-
-if __name__ == '__main__':
-    main()
+    def runPlotter(self, terms):
+        self.__init__(terms)
+        self.displayPlot(self.poly)
 

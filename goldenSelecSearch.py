@@ -15,7 +15,7 @@ class Optimization(Polynomial):
     
     '''Constructor'''
     def __init__(self, *args):
-        Polynomial.__init__(self, *args)
+        Polynomial.__init__(self, args)
         
     ''' Method to user defined boundries of where the search should begin iterating at
         Input:
@@ -70,19 +70,12 @@ class Optimization(Polynomial):
         
         return xOpt
     
-
-def main():
-    print("This program will approximate the maximum of an inputted polynomial")
-    function = Optimization()
-    function.displayPoly()
-    xLower, xUpper = function.getBoundry()
-    errorTol = function.getErrorTolerance()
-    maxIter = function.maxIterations()
+    def runOptimum(self, terms):
+        self.__init__(terms)
+        self.displayPoly()
+        xLower, xUpper = self.getBoundry()
+        errorTol = self.getErrorTolerance()
+        maxIter = self.maxIterations()
+        xOpt = self.goldenSearch(xLower, xUpper, errorTol, maxIter)
+        print("xMax = " + str(xOpt) + ", FunctionValue(xMax) = " + str(self.getValue(xOpt)) + "\n")
     
-    xOpt = function.goldenSearch(xLower, xUpper, errorTol, maxIter)
-    print("xMax = " + str(xOpt) + ", FunctionValue(xMax) = " + str(function.getValue(xOpt)))
-    
-
-
-if __name__ == "__main__":
-    main()
