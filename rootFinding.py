@@ -7,7 +7,7 @@ import numpy as np
 from Polynomial import Polynomial
 
 class Roots(Polynomial):
-
+    
     '''Constructor'''
     def __init__(self, *args):
         Polynomial.__init__(self, args)

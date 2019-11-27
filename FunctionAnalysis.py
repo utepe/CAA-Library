@@ -15,6 +15,7 @@ class Analysis(Optimization, Roots, Plotter):
             print("[2] Find the max/min value of the function (Optimum)")
             print("[3] Plot the given function for a graphical solution")
 
+
             print("")
             choice = int(input("Enter what you would like to do: "))
             
