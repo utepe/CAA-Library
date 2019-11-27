@@ -58,4 +58,3 @@ class Optimize(Polynomial):
         maxIter = self.maxIterations()
         xCalc = self.secondDerNewtonRaphsonMethod(xNaught, errorTol, maxIter)
         self.isMinMax(xCalc)
-        #print("A using Newton-Raphson Method: {:0.6f} \n".format(self.secondDerNewtonRaphsonMethod(xNaught, errorTol, maxIter)))
