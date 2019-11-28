@@ -10,12 +10,14 @@ class Polynomial:
     poly = np.poly1d([])
     polyDerivative = np.polyder(poly)
     polySecondDer = np.polyder(polyDerivative)
+    polyIntegral = np.polyint(poly)
 
     def __init__(self, terms):
         terms = np.array(terms).reshape([-1])
         self.poly = np.poly1d(terms)
         self.polyDerivative = np.polyder(self.poly)
         self.polySecondDer = np.polyder(self.polyDerivative)
+        self.polyIntegral = np.polyint(self.poly)
         pass
     
     def __call__(self, x):
@@ -33,6 +35,11 @@ class Polynomial:
         print("It's Second Derivative")
         print(self.polySecondDer)
         
+    def displayIntegral(self):
+        print("It's Indefinite Integral")
+        #print(self.poly.integ())
+        print(self.polyIntegral)
+         
     def getCoeffBaseX(self, degree):
         polyCoeff = []
         
