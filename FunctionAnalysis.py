@@ -1,8 +1,9 @@
-# from goldenSelecSearch import Optimization
-# from rootFinding import Roots
-# from plotPloy import Plotter
 from Polynomial import Polynomial
 from selector import Selection
+from rootFinding import Roots
+from plotPloy import Plotter
+from optimize import Optimize
+from integration import Integrals
 
 class Analysis(Polynomial):
     def __init__(self, *args):
@@ -21,6 +22,16 @@ class Analysis(Polynomial):
         
         return choice
     
+    def methodSelector(self, choice, terms):
+        selector = {
+            1 : Roots().runRootFind,
+            2 : Optimize().runMinMaxFind,
+            3 : Plotter().runPlotter,
+            4 : Integrals().runFindIntegral,
+        }
+        
+        selector[choice](terms)
+    
 def main():
     function = Analysis()
     degree = function.getInfo()
@@ -30,7 +41,7 @@ def main():
         choice  = function.getChoice()
         if choice  == 0:
             break
-        run = Selection().methodSelector(choice, terms)
+        run = function.methodSelector(choice, terms)
         
 if __name__ == '__main__':
     main()
