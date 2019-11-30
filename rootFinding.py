@@ -43,7 +43,6 @@ class Roots(Polynomial):
         
         return xNew
     
-    
     def getInitialGuess(self):
         xNaught = float(input("Enter the initial guess where the method should beging at: "))
         return xNaught

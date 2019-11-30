@@ -1,26 +1,23 @@
 from Polynomial import Polynomial
-from selector import Selection
 from rootFinding import Roots
 from plotPloy import Plotter
 from optimize import Optimize
 from integration import Integrals
 
-class Analysis(Polynomial):
-    def __init__(self, *args):
+class polyAnalysis(Polynomial):
+    
+    def __init__(self):
         pass
        
     def getChoice(self):
         print("\nWhat would you like to do with this function?")
-        print("[0] To terminate program")
+        print("[0] Return to Main Menu")
         print("[1] Find the a root of the function")
         print("[2] Find the max/min value of the function (Optimum)")
         print("[3] Plot the given function for a graphical solution")
         print("[4] Find the integral of the given function")
 
-        print("")
-        choice = int(input("Enter what you would like to do: "))
-        
-        return choice
+        return int(input("\nEnter what you would like to do: "))
     
     def methodSelector(self, choice, terms):
         selector = {
@@ -32,16 +29,13 @@ class Analysis(Polynomial):
         
         selector[choice](terms)
     
-def main():
-    function = Analysis()
-    degree = function.getInfo()
-    terms = function.getCoeffBaseX(degree)
-    flag = False
-    while flag == False:
-        choice  = function.getChoice()
-        if choice  == 0:
-            break
-        run = function.methodSelector(choice, terms)
+    def runPolyAnalysis(self):
+        degree = self.getInfo()
+        terms = self.getCoeffBaseX(degree)
+        flag = False
+        while flag == False:
+            choice  = self.getChoice()
+            if choice == 0:
+                break
+            self.methodSelector(choice, terms)
         
-if __name__ == '__main__':
-    main()

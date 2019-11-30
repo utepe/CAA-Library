@@ -26,6 +26,7 @@ class Integrals(Polynomial):
         dx = float((b-a)/n) 
         x = np.linspace(a, b, n + 1)
         xMid = (x[:-1] + x[1:])/2
+        print("\nDefinite Integral of this Polynomial using Riemann Sums is: ")
         print(np.sum(self.getValue(xMid)) * dx)
     
     def getDefIntegral(self, a, b):
@@ -33,6 +34,7 @@ class Integrals(Polynomial):
         Method to get the definite integral of a polynomial 
         Using built in SciPy method
         '''
+        print("\nIntegral using SciPy is (integral, error): ")
         print(integrate.quad(self.poly, a, b))        
         
     def runFindIntegral(self, terms):
