@@ -11,14 +11,15 @@ class GaussElim:
         
     def getMat(self):
         row = []
+        print("\nEnter the coefficents of the terms in each row: ")
         for i in range(self.size):
-            row = list(map(float, input("\nEnter the coefficents of the terms in row " + str(i+1) + " (seperate coeffs with spaces): \n").split()))
+            row = list(map(float, input("Row " + str(i+1) + " (seperate coeffs with a space): \n").split()))
             self.matrix.append(row)
         
+        print("\nEntered Matrix is: ")
         self.displayMat()
         
     def displayMat(self):
-        print("")
         for i in self.matrix:
             print(i)
      
@@ -55,11 +56,10 @@ class GaussElim:
                     l += 1
                 self.soln[k] /= self.matrix[k][k]
                 k -= 1
-        
-            
+                
     def displaySoln(self):
         self.solveMat()
-        print("Solved Matrix is: ")
+        print("\nSolved Matrix is: ")
         self.displayMat()
         
         print("Solutions to the unknowns are:")

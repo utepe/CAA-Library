@@ -3,7 +3,8 @@ from linearRegression import linearRegress
 from linearAlgAnalysis import linAlgAnalysis
 
 def getChoice():
-    print("\nWhat would you like to do with this program?")
+    print("\nCAA Library Main Menu")
+    print("------------------------")
     print("[0] Terminate Program")
     print("[1] Input a Polynomial and Analyze it")
     print("[2] Find the equation for a Line of Best Fit")
