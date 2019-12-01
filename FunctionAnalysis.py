@@ -29,6 +29,7 @@ class polyAnalysis(Polynomial):
         
         selector[choice](terms)
     
+    #streamline this
     def runPolyAnalysis(self):
         degree = self.getInfo()
         terms = self.getCoeffBaseX(degree)
