@@ -20,22 +20,27 @@ class linearRegress():
     def __init__(self):
         pass
         
-    def getN(self):
+    def setN(self):
+        '''Setter Method for number of data points'''
         self.N = int(input("Enter the number of Data Points: "))
     
-    def getTerms(self, N):
-        for i in range(N):
+    def setTerms(self):
+        '''Setter method for the terms'''
+        self.setN()
+        for i in range(self.N):
             self.X.append(float(input("X" + str(i) + ": ")))
             self.Y.append(float(input("Y" + str(i) + ": ")))
         
     def findSummations(self):
-       for i in range(self.N):
+        '''Method to find the summations for each terms in the least sqaures method'''
+        for i in range(self.N):
            self.sumX += self.X[i]
            self.sumY += self.Y[i]
            self.sumXY += self.X[i] * self.Y[i]
            self.sumX2 += m.pow(self.X[i], 2)
     
     def findLineEqn(self):
+        '''Finds the slope an yInter of the data points using least sqaure method'''
         self.findSummations()
         self.slope = ((self.N * self.sumXY - self.sumX * self.sumY) / (self.N * self.sumX2 - m.pow(self.sumX, 2)))
         self.yInt = ((self.sumY - self.slope * self.sumX) / self.N)
@@ -44,6 +49,7 @@ class linearRegress():
         print("\nEquation of the line of best fit is: " + str(self.lineEqn))
         
     def findStdError(self):
+        '''Finds the Standard Error in the line'''
         for i in range(self.N):
             self.sR += m.pow((self.Y[i] - self.yInt - self.slope * self.X[i]), 2)
             
@@ -60,6 +66,7 @@ class linearRegress():
         self.r = m.sqrt((sT - self.sR) / sT)
     
     def plotLine(self):
+        '''Plots the line of best fit against the scattered data points'''
         plt.scatter(self.X, self.Y, s =10)
         x = np.linspace((self.X[0] - 2), (self.X[self.N-1] + 2), 100, endpoint=False)
         y = self.lineEqn(x)
@@ -73,9 +80,15 @@ class linearRegress():
         plt.show()
         
     def runLineFit(self):
-        self.getN()
-        self.getTerms(self.N)
-        self.findLineEqn()
-        self.findStdError()
-        self.findR()
-        self.plotLine()
+        print("Linear Regression Menu")
+        print("-------------------------")
+        key = int(input("If you would like to stay on this page, enter [1]: "))
+        if key == 1:
+            self.setTerms()
+            self.findLineEqn()
+            self.findStdError()
+            self.findR()
+            self.plotLine()
+        else:
+            print("Going back to the main menu")
+            

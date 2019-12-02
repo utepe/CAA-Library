@@ -49,7 +49,7 @@ class Optimize(Polynomial):
         else:
             print("Maximum was found at {:0.6f} \n".format(xValue))
     
-    def getInitialGuess(self):
+    def setInitialGuess(self):
         ''' 
         Method to get users inital guess
         Return: user inputted initial guess
@@ -62,7 +62,7 @@ class Optimize(Polynomial):
         self.displayPoly()
         self.displayDerivative()
         self.displaySecondDerivative()
-        xNaught = self.getInitialGuess()
+        xNaught = self.setInitialGuess()
         errorTol = self.getErrorTolerance()
         maxIter = self.maxIterations()
         xCalc = self.secondDerNewtonRaphsonMethod(xNaught, errorTol, maxIter)

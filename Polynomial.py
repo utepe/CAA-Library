@@ -40,7 +40,7 @@ class Polynomial:
         #print(self.poly.integ())
         print(self.polyIntegral)
          
-    def getCoeffBaseX(self, degree):
+    def setCoeffBaseX(self, degree):
         polyCoeff = []
         
         count = 0
@@ -70,7 +70,7 @@ class Polynomial:
         maxIter = float(input("Enter the desired amount of iterations: "))
         return maxIter
     
-    def getInfo(self):
+    def setDegree(self):
         print("Enter the information for the polynomial: ")
         degree = int(input("Enter the degree of the polynomial: "))
         return degree

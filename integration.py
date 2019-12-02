@@ -8,7 +8,7 @@ class Integrals(Polynomial):
     def __init__(self, *args):
         super().__init__(args)
         
-    def getBounds(self):
+    def setBounds(self):
         '''
         Method to get the interval of integration
         Returns: the upper and low bound of the interval
@@ -41,6 +41,6 @@ class Integrals(Polynomial):
         self.__init__(terms)
         self.displayPoly()
         self.displayIntegral()
-        a, b = self.getBounds()
+        a, b = self.setBounds()
         self.getDefIntegral(a, b)
         self.riemannSum(a, b)
