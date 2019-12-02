@@ -4,6 +4,9 @@ class GaussElim:
     soln = []
     
     def __init__(self):
+        self.matrix = []
+        self.size = 0
+        self.soln = []
         pass
     
     def getSize(self):
@@ -72,7 +75,7 @@ class GaussElim:
         
         print("Solutions to the unknowns are:")
         for i in range(len(self.soln)):
-            print("X" + str(i+1) + " = " + str(self.soln[i])) 
+            print("X{:d}  = {:0.3f}".format(i+1, self.soln[i]))
         
     def runGaussElim(self):
         self.getSize()
