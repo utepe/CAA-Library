@@ -34,6 +34,7 @@ class GaussElim:
         Method that checks if the first coefficeint of the matrix is 0
         If coeff is 0, removes first equation and appends it to the end of the system
         '''
+        
         while self.matrix[0][0] == 0:   #repeats process until first coefficient is not 0
             temp = self.matrix.pop(0)
             self.matrix.append(temp)
