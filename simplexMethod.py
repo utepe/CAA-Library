@@ -143,7 +143,7 @@ class Simplex:
                         break
     
         for i in coeffB:
-            print("X" + str(coeffB.index(i)) + ": " + str(i))
+            print("X" + str(coeffB.index(i) + 1) + ": " + str(i))
             
         print("\nOptimized Max Value is " + str(abs(self.maxZ)))
         
