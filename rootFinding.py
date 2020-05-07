@@ -8,22 +8,24 @@ from Polynomial import Polynomial
 
 class Roots(Polynomial):
     
-    '''Constructor'''
     def __init__(self, *args):
+        '''Constructor'''
         Polynomial.__init__(self, args)
     
-    ''' Error calculation method
+    def errorCalc(self, xOld, xNew):
+        ''' 
+        Error calculation method
         Input: xOld, xNew
         Output: error of the new x value as a percentage
-    '''
-    def errorCalc(self, xOld, xNew):
+        '''
         return abs((xNew-xOld)/xNew) * 100
     
-    ''' Newton Raphson Method of root finding 
+    def newtonRaphsonMethod(self, xNaught, errorTolerance, maxIterations):
+        ''' 
+        Newton Raphson Method of root finding 
         Input: initial guess, xNaught, the desired error tolerace, and maximum number of iterations
         Output: approximated root of the function
-    '''
-    def newtonRaphsonMethod(self, xNaught, errorTolerance, maxIterations):
+        '''
         xNew = 0
         error = 0
         i = 0
@@ -41,10 +43,6 @@ class Roots(Polynomial):
         
         return xNew
     
-    ''' Method to get users inital guess
-        Input: 
-        Output: user inputted initial guess
-    '''
     def getInitialGuess(self):
         xNaught = float(input("Enter the initial guess where the method should beging at: "))
         return xNaught

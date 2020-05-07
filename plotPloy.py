@@ -22,6 +22,10 @@ class Plotter(Polynomial):
     
     def displayPlot(self, poly):
         X, Y =  self.setXY(poly)
+        plt.title("Plot of the Polynomial")
+        plt.xlabel("X - Axis")
+        plt.ylabel("Y- Axis")
+        plt.grid(True)
         plt.plot(X, Y)
         plt.show()
     
