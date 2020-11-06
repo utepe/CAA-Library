@@ -1,5 +1,5 @@
 import math as m
-def bisection(f,a,b,N):
+def bisection(f,a,b,N, errorTolerance):
     '''Approximate solution of f(x)=0 on interval [a,b] by bisection method.
 
     Parameters
@@ -52,5 +52,5 @@ def bisection(f,a,b,N):
             return None
     return (a_n + b_n)/2
 
-f = lambda x: 3*x*m.sin(x) - 5
+f = lambda x: 3*x*m.sin(x) - 6
 print(bisection(f, 6, 8, 2))

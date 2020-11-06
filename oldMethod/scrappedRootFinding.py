@@ -2,7 +2,7 @@
     Python code of other root finding methods
 '''
 
-def bisectionMethod(self, xLow, xHigh, errorTolerance, maxIterations):
+def bisectionMethod(xLow, xHigh, errorTolerance, maxIterations):
         
         xNew = 0
         xOld = 0
@@ -29,7 +29,7 @@ def bisectionMethod(self, xLow, xHigh, errorTolerance, maxIterations):
         
         return xNew
         
-def faslePositionMethod(self, xLow, xHigh, errorTolerance, maxIterations):
+def faslePositionMethod(xLow, xHigh, errorTolerance, maxIterations):
         
     xNew = 0
     xOld = 0
